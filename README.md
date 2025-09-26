@@ -22,6 +22,12 @@
 - **Precio sugerido:** $200-500 USD por instalación + $50-100/mes mantenimiento
 - **Legal:** Una instancia n8n por cliente (cumple licencia)
 
+## ⚖️ Cumplimiento Legal n8n
+- ✅ Una instalación n8n por cliente
+- ✅ Cada cliente tiene su propia instancia
+- ✅ Cobramos por servicio, no por software
+- ✅ Los flujos creados son propiedad intelectual nuestra
+
 ## 📞 Contacto para Clientes
 - Email: [tarjetasprof@gmail.com]
 - WhatsApp: [TU NÚMERO]
