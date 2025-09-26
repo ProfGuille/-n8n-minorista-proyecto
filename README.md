@@ -1,8 +1,7 @@
 # n8n Automatizaciones para Minoristas
 
 ## 🎯 Estado Actual
-**Último paso completado:** Paso 1 - README creado
-**Fecha:** 25 de septiembre 2025
+**Último paso completado:** Paso 2 - n8n instalado y funcionando**Fecha:** 25 de septiembre 2025
 **Próximo paso:** Paso 2 - Instalar n8n localmente
 
 ## 📋 Registro de Progreso
@@ -11,9 +10,9 @@
 - Creé el archivo README.md
 - Establecí la estructura del proyecto
 
-### ⏳ Paso 2: Instalar n8n local
-- Pendiente
-
+### ✅ Paso 2: Instalar n8n local (COMPLETADO)
+- n8n funcionando en http://localhost:5678
+- 
 ## 🛠️ Automatizaciones Creadas
 (Vacío - se llenará con cada automatización)
 
@@ -28,6 +27,12 @@
 - ✅ Cobramos por servicio, no por software
 - ✅ Los flujos creados son propiedad intelectual nuestra
 
+## 🔐 Credenciales de Desarrollo (NO COMPARTIR)
+- **n8n local:** 
+  - Email: [tu email que usaste]
+  - Password: [guárdalo en un lugar seguro, no en GitHub]
+  - URL: http://localhost:5678
+  - 
 ## 📞 Contacto para Clientes
 - Email: [tarjetasprof@gmail.com]
 - WhatsApp: [TU NÚMERO]
