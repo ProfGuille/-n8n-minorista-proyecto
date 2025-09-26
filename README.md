@@ -1,67 +1,81 @@
-Markdown
-
 # 🚀 Proyecto n8n Minorista — Sistema Anti-Fricción
 
 > "Avanzo aunque pare. No pierdo el hilo. Celebro cada micro-logro."
 
 ---
 
-## 🎯 PANEL DE CONTROL — ¿POR DÓNDE SIGO?
+## 🎯 ¿Dónde estoy? ¿Qué sigue?
 
-✅ **ÚLTIMA TAREA COMPLETADA**: [NINGUNA — recién empiezo]
-
-🟢 **PRÓXIMA TAREA (5-15 min)**:
-> Desplegar mi primera instancia de n8n en Cyclic.sh — sigue las instrucciones abajo.
+🟢 **PRÓXIMO PASO (5 minutos):**  
+> Desplegar mi primera instancia de n8n en Cyclic.sh — instrucciones abajo.
 
 ---
 
-## 📌 GUÍA PASO A PASO — Copia y pega
+## 📌 Instrucciones — Copia y pega (no cambian)
 
-### 1. Desplegar n8n en Cyclic.sh (gratis, sin tarjeta)
+### Paso 1: Ir a Cyclic.sh
 
-🔗 Enlace directo: https://www.cyclic.sh/
+Abre esta página: https://www.cyclic.sh/
 
-1. Haz clic en “Get Started Free”
-2. Conéctalo con tu GitHub
-3. Haz clic en “Create App” → “Deploy from GitHub”
-4. En “Repository”, pega:  
+Haz clic en “Get Started Free”
+
+---
+
+### Paso 2: Conectar con GitHub
+
+→ Haz clic en “Continue with GitHub” → acepta los permisos.
+
+---
+
+### Paso 3: Crear tu app
+
+Haz clic en “Create App” → luego en “Deploy from GitHub”
+
+---
+
+### Paso 4: Pegar el repositorio
+
+En el campo “Repository”, pega exactamente esto:
+
 https://github.com/n8nio/n8n-cyclic
 
-text
+En “Branch”, escribe:
 
-5. En “Branch”: `main`
-6. Haz clic en “Deploy”
-7. Espera 2-3 minutos → ¡listo! Te dará una URL como:  
-`https://[nombre].cyclic.app`
+main
 
-🔑 Usuario: `admin`  
-🔑 Contraseña: `password`
-
-📸 **MICRO-LOGRO #1**: Captura pantalla de tu n8n funcionando → guárdala aquí mismo subiéndola como imagen.
+Haz clic en “Deploy”
 
 ---
 
-## 📸 ZONA DE LOGROS (sube tus capturas aquí)
+### Paso 5: Esperar y obtener tu URL
 
-(Deja este espacio vacío por ahora — luego arrastrarás imágenes aquí)
+→ Espera 2-3 minutos.  
+→ Te dará una URL tipo: https://[algo].cyclic.app  
+→ Esa es TU n8n.
+
+Usuario: admin  
+Contraseña: password
+
+---
+
+## 🖼️ MI PRIMER LOGRO (cuando lo logres)
+
+Cuando tengas tu n8n funcionando:
+
+1. Saca captura de pantalla.
+2. Vuelve aquí, haz clic en “Add file” → “Upload files”
+3. Sube la imagen.
+4. En “Commit message”, escribe:  
+   📸 Primer logro: n8n funcionando!
+5. Haz clic en “Commit changes”
 
 ---
 
 ## 🔄 CUANDO RETOME…
 
-Siempre vuelve aquí. Edita este archivo:
+Solo vuelve a este link:  
+https://github.com/ProfGuille/-n8n-minorista-proyecto
 
-- Cambia “ÚLTIMA TAREA COMPLETADA”.
-- Marca lo hecho.
-- Sigue la PRÓXIMA TAREA.
+Edita este archivo (README.md) y actualiza tu progreso.
 
-No necesitas recordar nada. Todo está aquí.
-
----
-
-## 💡 TAREAS FUTURAS (elige una cuando tengas tiempo)
-
-- [ ] Exportar workflow de prueba como JSON
-- [ ] Crear página en Carrd.co mostrando mi demo
-- [ ] Enviar demo a 1 negocio local
-- [ ] Configurar dominio personalizado con Cloudflare
+Nada cambia. Todo está aquí.
