@@ -20,7 +20,8 @@
 - **Servicio:** Instalación y configuración de n8n para minoristas
 - **Precio sugerido:** $200-500 USD por instalación + $50-100/mes mantenimiento
 - **Legal:** Una instancia n8n por cliente (cumple licencia)
-
+- Primera oferta en venta: Notificador de Ventas WhatsApp (repo + propuesta incluidos)
+- 
 ## ⚖️ Cumplimiento Legal n8n
 - ✅ Una instalación n8n por cliente
 - ✅ Cada cliente tiene su propia instancia
