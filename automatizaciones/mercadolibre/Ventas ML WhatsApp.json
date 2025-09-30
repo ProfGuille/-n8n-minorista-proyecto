@@ -1,0 +1,113 @@
+{
+  "name": "Ventas ML WhatsApp",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "cd74c7c4-5d76-4d2d-b439-8352ec79d5ae",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "url": "https://api.mercadolibre.com/orders/search?seller=115027425&order.status=paid",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer APP_USR-1423485043615619-092922-36bd8fa59f08954ebf28ae7973578dd2-115027425"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "628e6cfb-a7d2-4558-b66f-7e3cbf51c1d8",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "url": "https://api.callmebot.com/whatsapp.php",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "+5491124007782"
+            },
+            {
+              "name": "apikey",
+              "value": "9953653"
+            },
+            {
+              "name": "text",
+              "value": "=🔔 Nueva venta ML! Producto: {{$json[\"results\"][0][\"order_items\"][0][\"item\"][\"title\"]}} Total: ${{$json[\"results\"][0][\"total_amount\"]}} Comprador: {{$json[\"results\"][0][\"buyer\"][\"nickname\"]}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        432,
+        0
+      ],
+      "id": "894af7f4-87cf-49ef-b60c-56c62cd4e491",
+      "name": "HTTP Request1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "d0d3a8ec-46db-4afd-841f-751822c470ae",
+  "meta": {
+    "instanceId": "ab935db08e11014c8278b705f16533181ae12d1727bafda9e525b6c4d4a622c3"
+  },
+  "id": "p2vDeS23ksUPS9mM",
+  "tags": []
+}
