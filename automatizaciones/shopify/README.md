@@ -1,3 +1,6 @@
+🔗 [← Volver al Catálogo General](../../CATALOGO.md)
+---
+
 # 🚀 Notificador de Ventas Shopify / WooCommerce / Tiendanube → WhatsApp
 
 **Archivo asociado:** `Notificador_Ventas_Shopify_WhatsApp.json` (pendiente de generar / importar)
