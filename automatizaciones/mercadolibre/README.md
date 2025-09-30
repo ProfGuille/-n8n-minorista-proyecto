@@ -1,3 +1,6 @@
+🔗 [← Volver al Catálogo General](../../CATALOGO.md)
+---
+
 # 🚀 Notificador de Ventas Mercado Libre → WhatsApp
 
 **Archivo asociado:** `Notificador_Ventas_ML_WhatsApp.json`
