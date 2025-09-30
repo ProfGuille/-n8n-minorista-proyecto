@@ -1,3 +1,6 @@
+🔗 [← Volver al Catálogo General](../../CATALOGO.md)
+---
+
 # 🚀 Notificador de Ventas por Email → WhatsApp
 
 **Archivo asociado:** `Notificador_Ventas_Email_WhatsApp.json` (pendiente de generar / importar)
