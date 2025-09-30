@@ -1,93 +1,90 @@
 # 📦 Catálogo de Automatizaciones n8n para Minoristas
 
-Este archivo organiza **todas las automatizaciones disponibles**, listas para importar en n8n y adaptar a cada cliente según el sistema que use para registrar sus ventas.  
+Este documento reúne todas las automatizaciones disponibles, los ejemplos de entregas ficticias y las demos visuales.  
+Sirve como **índice maestro del proyecto**.
 
 ---
 
-## 🚀 Automatizaciones Disponibles
+## 🚀 Automatizaciones disponibles
 
 ### 1. Genérico → WhatsApp
 - **Archivo:** `/automatizaciones/generico/Notificador_Ventas_WhatsApp.json`
-- **Funcionalidad:** Flujo simple de Webhook → WhatsApp (demo base).  
+- **Funcionalidad:** Flujo básico de Webhook → WhatsApp (demo universal).  
 - **Precio sugerido:** USD 75 instalación + USD 25/mes mantenimiento.  
-- **Ideal para:** mostrar rápido el concepto o enganchar cualquier sistema que exponga un webhook.  
+- **Uso típico:** presentaciones iniciales o conectar sistemas que ya exponen webhooks.
 
 ---
 
 ### 2. MercadoLibre → WhatsApp
 - **Archivo:** `/automatizaciones/mercadolibre/Notificador_Ventas_ML_WhatsApp.json`
-- **Funcionalidad:** Consulta órdenes pagadas vía API de MercadoLibre y envía WhatsApp con datos (producto, cliente, monto).  
+- **Funcionalidad:** Consulta órdenes pagadas en la API de MercadoLibre → WhatsApp con producto, monto y cliente.  
 - **Precio sugerido:** USD 100 instalación + USD 25/mes mantenimiento.  
-- **Ideal para:** vendedores de MercadoLibre que no quieren depender de mails inestables.  
+- **Uso típico:** vendedores de ML que no quieren depender de mails fallidos.
 
 ---
 
 ### 3. Shopify / WooCommerce / Tiendanube → WhatsApp
-- **Archivo:** `/automatizaciones/shopify/Notificador_Ventas_Shopify_WhatsApp.json` (pendiente generar).  
-- **Funcionalidad:** Recibe notificaciones de ventas mediante webhook → gatilla mensaje inmediato por WhatsApp.  
+- **Archivo:** `/automatizaciones/shopify/Notificador_Ventas_Shopify_WhatsApp.json` (pendiente).  
+- **Funcionalidad:** Conecta webhook de “Order Created” de la tienda → WhatsApp instantáneo.  
 - **Precio sugerido:** USD 80 instalación + USD 25/mes mantenimiento.  
 
 ---
 
 ### 4. Email → WhatsApp
-- **Archivo:** `/automatizaciones/email/Notificador_Ventas_Email_WhatsApp.json` (pendiente generar).  
-- **Funcionalidad:** Detecta correos entrantes con asunto de “nueva venta” (ej. MercadoLibre, Tiendanube) y dispara WhatsApp.  
+- **Archivo:** `/automatizaciones/email/Notificador_Ventas_Email_WhatsApp.json` (pendiente).  
+- **Funcionalidad:** Detecta correos de “Has vendido” o “New Order” y dispara WhatsApp.  
 - **Precio sugerido:** USD 60 instalación + USD 20/mes mantenimiento.  
 
 ---
 
-### 5. Sheets / Excel → WhatsApp
-- **Archivo:** `/automatizaciones/sheets/Notificador_Ventas_Sheets_WhatsApp.json` (pendiente generar).  
-- **Funcionalidad:** Cada fila nueva en hoja de cálculo (Google Sheets) = venta → notificación de WhatsApp.  
+### 5. Google Sheets / Excel → WhatsApp
+- **Archivo:** `/automatizaciones/sheets/Notificador_Ventas_Sheets_WhatsApp.json` (pendiente).  
+- **Funcionalidad:** Una fila nueva en una planilla (producto + monto) → genera WhatsApp automático.  
 - **Precio sugerido:** USD 70 instalación + USD 25/mes mantenimiento.  
 
 ---
 
-## 📒 Ejemplos de Entregas (ficticias)
+## 📒 Ejemplos de entregas ficticias
 
-La carpeta `/entregas/` incluye ejemplos documentados de cómo queda cada instalación entregada a clientes:  
+La carpeta [/entregas/](entregas/README.md) contiene entregas documentadas con formato estandarizado.  
+Ejemplos ya cargados:
 
-- `PanaderiaSanJose-ejemploML-WA.md` → Caso MercadoLibre (API).  
-- `TiendaRopaJuana-ejemploShopifyTiendNube-WA.md` → Caso Shopify/Tiendanube (Webhook).  
-- `DieteticaVidaSana-ejemploEmail-WA.md` → Caso Email.  
-- `FerreteriaPerez-ejemplo-Sheets-WA.md` → Caso Sheets.  
+- [Panadería San José – ML API](entregas/PanaderiaSanJose-ejemploML-WA.md)  
+- [Tienda Ropa Juana – Shopify/Tiendanube](entregas/TiendaRopaJuana-ejemploShopifyTiendNube-WA.md)  
+- [Dietética Vida Sana – Email](entregas/DieteticaVidaSana-ejemploEmail-WA.md)  
+- [Ferretería Pérez – Sheets](entregas/FerreteriaPerez-ejemplo-Sheets-WA.md)  
 
-Cada archivo incluye: fecha, configuración, números/API key, estado de prueba, notas y modelo comercial aplicado.
+Cada archivo incluye:  
+- Fecha, cliente y sistema configurado.  
+- Número de WhatsApp + API key usados.  
+- Estado de pruebas.  
+- Modelo comercial y notas.
 
 ---
 
 ## 🎥 Demos disponibles
 
-En la carpeta [/demo/](demo/README.md) encontrarás presentaciones visuales simples para mostrar a clientes.
+En la carpeta [/demo/](demo/README.md) están listas presentaciones visuales con capturas, pensadas para **mostrar el valor al cliente en segundos**.
 
 - [Demo MercadoLibre](demo/Demo_MercadoLibre.md)  
 - [Demo Shopify / Tiendanube / WooCommerce](demo/Demo_Shopify.md)  
 - [Demo Email](demo/Demo_Email.md)  
-- [Demo Google Sheets / Excel](demo/Demo_Sheets.md)  
+- [Demo Google Sheets / Excel](demo/Demo_Sheets.md)
+
+💡 Todas siguen el mismo esquema:  
+**1. Captura de la venta** → **2. Captura del WhatsApp recibido** → explicación en texto breve.
 
 ---
 
-💡 Cada demo tiene 2 capturas claras: la **venta** en la plataforma de origen y la **notificación en WhatsApp**.  
-Perfecto para mostrar en reuniones: el cliente entiende en segundos →  
-**“Cuando vendo → recibo WhatsApp al instante.”**
+## 💼 Modelo Comercial Referencial
 
-## 💼 Modelo Comercial General
-
-- **Instalación inicial:** USD 60–100 (según origen).  
+- **Instalación inicial:** USD 60–100 según el origen.  
 - **Mantenimiento mensual:** USD 20–25.  
-- **Cumplimiento legal:** Una instancia n8n separada por cliente (cumple licencia).  
-- **Valor principal:** el cliente no necesita abrir n8n, solo recibe sus ventas directo al WhatsApp (que es lo que realmente quiere).
-
----
-
-## ✅ Cómo usar este catálogo
-
-1. Elegí el flujo según el sistema del cliente.  
-2. Importá el JSON en la instancia n8n del cliente.  
-3. Configurá:
-   - Credenciales de origen (API Token ML, webhook shopify, usuario Gmail, conexión Sheets, etc.)
-   - Número de WhatsApp y apikey de CallMeBot.  
-4. Probá un evento de venta → el WhatsApp llega.  
-5. Documentá en `/entregas/` usando la plantilla estándar.  
+- **Cumplimiento legal:** Una instancia de n8n por cliente.  
+- **Entregables:**  
+  - Importación del workflow en instancia propia.  
+  - Configuración con datos del cliente.  
+  - Prueba en vivo.  
+  - Documentación en `/entregas/`.
 
 ---
