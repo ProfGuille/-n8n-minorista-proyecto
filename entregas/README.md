@@ -1,3 +1,6 @@
+🔗 [← Volver al Catálogo General](../CATALOGO.md)
+---
+
 # 📒 Entregas a Clientes
 
 Este directorio contiene el registro de cada cliente que recibió una instalación de automatización.
