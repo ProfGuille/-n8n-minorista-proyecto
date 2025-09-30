@@ -1,3 +1,6 @@
+🔗 [← Volver al Catálogo General](../../CATALOGO.md)
+---
+
 # 🚀 Notificador de Ventas desde Excel / Google Sheets → WhatsApp
 
 **Archivo asociado:** `Notificador_Ventas_Sheets_WhatsApp.json` (pendiente de generar / importar)
