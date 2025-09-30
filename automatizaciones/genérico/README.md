@@ -1,3 +1,6 @@
+🔗 [← Volver al Catálogo General](../../CATALOGO.md)
+---
+
 # Automatización Genérica – Notificador de Ventas WhatsApp
 
 **Precio sugerido:** $75 USD instalación + $25 USD/mes mantenimiento.
