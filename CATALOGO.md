@@ -56,6 +56,21 @@ Cada archivo incluye: fecha, configuración, números/API key, estado de prueba,
 
 ---
 
+## 🎥 Demos disponibles
+
+En la carpeta [/demo/](demo/README.md) encontrarás presentaciones visuales simples para mostrar a clientes.
+
+- [Demo MercadoLibre](demo/Demo_MercadoLibre.md)  
+- [Demo Shopify / Tiendanube / WooCommerce](demo/Demo_Shopify.md)  
+- [Demo Email](demo/Demo_Email.md)  
+- [Demo Google Sheets / Excel](demo/Demo_Sheets.md)  
+
+---
+
+💡 Cada demo tiene 2 capturas claras: la **venta** en la plataforma de origen y la **notificación en WhatsApp**.  
+Perfecto para mostrar en reuniones: el cliente entiende en segundos →  
+**“Cuando vendo → recibo WhatsApp al instante.”**
+
 ## 💼 Modelo Comercial General
 
 - **Instalación inicial:** USD 60–100 (según origen).  
