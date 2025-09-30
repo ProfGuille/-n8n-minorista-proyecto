@@ -1,9 +1,13 @@
-# Demo Visual
+# 📊 Demo – [Nombre Sistema] → WhatsApp
 
-## Paso 1 - Ejemplo de venta en la tienda
-![Venta](venta.png)
+## 1️⃣ Paso 1 – Venta confirmada
+![Venta](Venta.png)
 
-## Paso 2 - Notificación automática en WhatsApp
-![WhatsApp](whatsapp.png)
+👉 Describe cómo se ve la venta en el sistema elegido.
 
-✅ Así verás cada venta en segundos, directamente en tu celular.
+---
+
+## 2️⃣ Paso 2 – Notificación en WhatsApp
+![WhatsApp](whatsapp.jpg)
+
+👉 Texto que aparece en WhatsApp con datos de la venta: producto, importe y cliente.
