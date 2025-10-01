@@ -99,7 +99,7 @@ Aquí eliges la prueba según el sistema del cliente:
 
 #### **Prueba para Mercado Libre**
 1.  Abre el workflow en n8n y haz clic en el botón **"Execute Workflow"**.
-2.  El workflow se ejecutará. Si el cliente tiene ventas pagadas recientes, recibirá un WhatsApp.
+2.  Si el cliente tiene ventas pagadas recientes, recibirá un WhatsApp.
 3.  **Para una prueba inmediata:** Modifica temporalmente el nodo **`4. Enviar WhatsApp`**. En el campo `text`, escribe un mensaje fijo como: `Prueba de conexión con Mercado Libre exitosa.`. Ejecuta el workflow. El cliente recibirá este mensaje. **No olvides volver a poner la expresión original después.**
 
 #### **Prueba para Shopify / WooCommerce / Tiendanube**
