@@ -56,8 +56,8 @@ Esta es la parte donde interactúas con el cliente. A continuación, tienes las 
 
     ```bash
     curl -X POST "https://api.mercadolibre.com/oauth/token" \
-    -H "Content-Type: application/x-www-form-urlencoded" \
-    -d "grant_type=authorization_code&client_id=1423485043615619&client_secret=kU3rHWl5UebbqNhm0W9cXUAwynpZum6P&code=[AQUÍ_PEGAS_EL_CODE]&redirect_uri=https://www.google.com"
+-H "Content-Type: application/x-www-form-urlencoded" \
+-d "grant_type=authorization_code&client_id=1423485043615619&client_secret=[AQUÍ_PEGAS_TU_CLIENT_SECRET]&code=[AQUÍ_PEGAS_EL_CODE]&redirect_uri=https://www.google.com"
     ```
 *   La terminal te devolverá una respuesta en formato JSON. De ahí, **copia y guarda estos dos valores**:
     *   `"refresh_token": "TG-xxxxxxxx..."` ← **Este es el que usarás en el workflow.**
