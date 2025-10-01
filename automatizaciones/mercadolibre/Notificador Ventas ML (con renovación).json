@@ -1,0 +1,192 @@
+{
+  "name": "Notificador Ventas ML (con renovación)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes"
+            }
+          ]
+        }
+      },
+      "id": "7fffbcb1-aecd-4405-ad85-ed3e81489ae8",
+      "name": "Cada 5 Minutos",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        192,
+        32
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.mercadolibre.com/oauth/token",
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "grant_type",
+              "value": "refresh_token"
+            },
+            {
+              "name": "client_id",
+              "value": "1423485043615619"
+            },
+            {
+              "name": "client_secret",
+              "value": "kU3rHWl5UebbqNhm0W9cXUAwynpZum6P"
+            },
+            {
+              "name": "refresh_token",
+              "value": "TG-68db423435a1370001e0e854-115027425"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a11d81ea-e020-40fb-a3ea-89f08e34e836",
+      "name": "1. Renovar Token",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        416,
+        32
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.mercadolibre.com/orders/search?seller=115027425&order.status=paid",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ 'Bearer ' + $json.access_token }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c2188f71-d10d-4b3a-81cf-0d8160d4deec",
+      "name": "2. Consultar Órdenes",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        640,
+        32
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{$json.results.length}}",
+              "operation": "larger"
+            }
+          ]
+        }
+      },
+      "id": "818e7398-f4d5-4ca6-9a03-e7ba101b34e3",
+      "name": "3. ¿Hay Órdenes Nuevas?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        864,
+        32
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.callmebot.com/whatsapp.php",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "+5491124007782"
+            },
+            {
+              "name": "apikey",
+              "value": "9953653"
+            },
+            {
+              "name": "text",
+              "value": "🔔 Nueva venta ML!\nProducto: {{$json[\"results\"][0][\"order_items\"][0][\"item\"][\"title\"]}}\nTotal: ${{$json[\"results\"][0][\"total_amount\"]}}\nComprador: {{$json[\"results\"][0][\"buyer\"][\"nickname\"]}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "93b031ab-f00c-4152-939b-31671c5f9131",
+      "name": "4. Enviar WhatsApp",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1088,
+        32
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Cada 5 Minutos": {
+      "main": [
+        [
+          {
+            "node": "1. Renovar Token",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "1. Renovar Token": {
+      "main": [
+        [
+          {
+            "node": "2. Consultar Órdenes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "2. Consultar Órdenes": {
+      "main": [
+        [
+          {
+            "node": "3. ¿Hay Órdenes Nuevas?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "3. ¿Hay Órdenes Nuevas?": {
+      "main": [
+        [
+          {
+            "node": "4. Enviar WhatsApp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "60275c7f-67e3-4660-9149-882b28f1f37f",
+  "meta": {
+    "instanceId": "ab935db08e11014c8278b705f16533181ae12d1727bafda9e525b6c4d4a622c3"
+  },
+  "id": "WTayVmPJaHRN4v8e",
+  "tags": []
+}
