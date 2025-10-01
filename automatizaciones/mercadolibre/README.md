@@ -8,35 +8,27 @@
 ---
 
 ## 🎯 ¿Qué hace?
-- Consulta periódicamente las órdenes pagadas en Mercado Libre mediante la API oficial.
-- Cada vez que detecta una venta nueva, envía un aviso inmediato al WhatsApp del comerciante usando CallMeBot.
-- Incluye: producto vendido, monto total y nombre/nickname del comprador.
+Este es un workflow **autocontenido** que se ejecuta cada 5 minutos y realiza el ciclo completo:
+1.  **Renueva el access_token** de Mercado Libre automáticamente usando el `refresh_token`.
+2.  **Consulta las órdenes pagadas** más recientes.
+3.  Si encuentra órdenes nuevas, **envía un aviso inmediato a WhatsApp** con los detalles.
 
 ---
 
-## 📋 Requisitos
-- **Access Token de Mercado Libre válido** (obtenido al autorizar la app del cliente).
-- **Refresh Token de Mercado Libre** (para renovar el access token cada vez que expire).
-- **Número de WhatsApp del cliente** (formato internacional, por ej. +54911XXXXXXX).
-- **API Key de CallMeBot** (el cliente la obtiene enviando el mensaje `I allow callmebot to send me messages` al bot de CallMeBot).
-
----
-
-## ⏱️ Tiempo de configuración
-- Autorizar app Mercado Libre del cliente: 10 minutos.
-- Pegado de tokens y datos en el workflow: 20 minutos.
-- Prueba de envío por WhatsApp: 5 minutos.  
-**Total estimado:** 30–40 minutos en primera instalación.
+## 📋 Requisitos (por cliente)
+-   **Refresh Token de Mercado Libre:** Se obtiene una única vez al autorizar tu aplicación en la cuenta del cliente.
+-   **Seller ID del cliente:** El ID de vendedor de su cuenta de Mercado Libre.
+-   **Número de WhatsApp del cliente.**
+-   **API Key de CallMeBot** del cliente.
 
 ---
 
 ## 💰 Modelo comercial sugerido
-- **Instalación inicial:** USD 100 (supone trabajo de vinculación, configuración y prueba).
-- **Mantenimiento mensual:** USD 25 (cubre costo de hosting + seguimiento y renovación de tokens en su servidor dedicado).
+-   **Instalación inicial:** USD 100.
+-   **Mantenimiento mensual:** USD 25.
 
 ---
 
 ## 📌 Notas
-- Este flujo requiere que cada cliente tenga **su propia instancia n8n** (cumpliendo con la licencia de n8n).
-- El archivo JSON aquí guardado se importa en la instancia n8n del cliente (`Workflows → Import from File`).
-- Solo deben actualizarse: tokens, número de WhatsApp y apikey.
+-   Este flujo es **estable y 100% automático**. No requiere intervención manual para renovar tokens.
+-   Se instala importando el `.json` en la instancia n8n del cliente y personalizando los 4 campos clave.
