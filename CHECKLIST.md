@@ -52,16 +52,36 @@ Esta es la parte donde interactúas con el cliente. A continuación, tienes las 
 
 **3. Tu Tarea (después de que el cliente te pasa la URL):**
 *   De la URL que te pasó el cliente (ej: `https://www.google.com/?code=TG-xxxxxxxx`), **copia solo el código** que empieza con `TG-`. Ese es el `code`.
-*   Abre tu terminal y pega el siguiente comando, **reemplazando `[AQUÍ_PEGAS_EL_CODE]`** por el código que acabas de copiar.
+*   Abre tu terminal y pega el siguiente comando, **reemplazando `[AQUÍ_PEGAS_TU_CLIENT_SECRET]` y `[AQUÍ_PEGAS_EL_CODE]`** por los valores correctos.
 
     ```bash
     curl -X POST "https://api.mercadolibre.com/oauth/token" \
--H "Content-Type: application/x-www-form-urlencoded" \
--d "grant_type=authorization_code&client_id=1423485043615619&client_secret=[AQUÍ_PEGAS_TU_CLIENT_SECRET]&code=[AQUÍ_PEGAS_EL_CODE]&redirect_uri=https://www.google.com"
+    -H "Content-Type: application/x-www-form-urlencoded" \
+    -d "grant_type=authorization_code&client_id=1423485043615619&client_secret=[AQUÍ_PEGAS_TU_CLIENT_SECRET]&code=[AQUÍ_PEGAS_EL_CODE]&redirect_uri=https://www.google.com"
     ```
 *   La terminal te devolverá una respuesta en formato JSON. De ahí, **copia y guarda estos dos valores**:
     *   `"refresh_token": "TG-xxxxxxxx..."` ← **Este es el que usarás en el workflow.**
     *   `"user_id": 123456789` ← **Este es el Seller ID del cliente.**
+
+---
+#### **C. Cliente con Email (Gmail)**
+
+**1. Qué necesitas pedirle:** Su dirección de correo y una "Contraseña de Aplicación".
+
+**2. Instrucciones para darle al cliente (copia y pega):**
+
+> Para que el robot pueda leer los correos de venta de forma segura, Google requiere una "Contraseña de Aplicación". Es una clave especial de 16 letras que solo sirve para esta automatización y **no expone tu contraseña principal**.
+>
+> Sigue estos pasos para generarla:
+>
+> 1.  Ve a este enlace oficial de Google: **https://myaccount.google.com/apppasswords**
+> 2.  Inicia sesión con tu cuenta de Gmail si te lo pide.
+> 3.  En "Seleccionar app", elige **"Otra (nombre personalizado)"**.
+> 4.  Escribe un nombre para identificarla, por ejemplo: `Robot N8N Ventas`.
+> 5.  Haz clic en **"Generar"**.
+> 6.  Google te mostrará una **contraseña de 16 letras** en un recuadro amarillo. **Cópiala y pégamela aquí**.
+>
+> **Importante:** Esta clave solo se muestra una vez. Cópiala antes de cerrar la ventana.
 
 ---
 
@@ -79,34 +99,23 @@ Aquí eliges la prueba según el sistema del cliente:
 
 #### **Prueba para Mercado Libre**
 1.  Abre el workflow en n8n y haz clic en el botón **"Execute Workflow"**.
-2.  El workflow se ejecutará. Revisa el nodo **`2. Consultar Órdenes`**.
-    -   Si el cliente tiene ventas pagadas recientes, el nodo mostrará datos en la sección "Output" y el cliente recibirá un WhatsApp.
-    -   Si el `results` sale vacío (`[]`), significa que la conexión funcionó pero no hay nuevas ventas que reportar.
-3.  **Para una prueba inmediata y visible para el cliente (incluso si no hay ventas):**
-    -   Modifica temporalmente el nodo **`4. Enviar WhatsApp`**.
-    -   En el campo `text`, borra la expresión y escribe un mensaje fijo como: `Prueba de conexión con Mercado Libre exitosa. ¡Ya estás listo para recibir notificaciones!`.
-    -   Ejecuta el workflow. El cliente recibirá este mensaje y confirmará que la conexión funciona.
-    -   **No olvides volver a poner la expresión original en el campo `text` después de la prueba.**
+2.  El workflow se ejecutará. Si el cliente tiene ventas pagadas recientes, recibirá un WhatsApp.
+3.  **Para una prueba inmediata:** Modifica temporalmente el nodo **`4. Enviar WhatsApp`**. En el campo `text`, escribe un mensaje fijo como: `Prueba de conexión con Mercado Libre exitosa.`. Ejecuta el workflow. El cliente recibirá este mensaje. **No olvides volver a poner la expresión original después.**
 
 #### **Prueba para Shopify / WooCommerce / Tiendanube**
-1.  Ve al panel de administrador de la tienda del cliente.
-2.  Ve a la sección donde creaste el webhook (`Configuración > Notificaciones > Webhooks` o similar).
-3.  Busca un botón o enlace que diga **"Enviar notificación de prueba"** (o "Send test notification"). Haz clic ahí.
-4.  **Si no hay botón de prueba:** Crea un **pedido de prueba** en la tienda. Puedes usar un código de descuento del 100% o un método de pago manual ("contra reembolso") para que no implique dinero real. Luego, puedes cancelar el pedido.
-5.  El cliente debe recibir un WhatsApp con los datos de la venta de prueba.
+1.  Ve al panel de la tienda del cliente, a la sección "Webhooks".
+2.  Busca un botón que diga **"Enviar notificación de prueba"**.
+3.  **Si no hay botón de prueba:** Crea un **pedido de prueba** en la tienda usando un método de pago manual.
+4.  El cliente debe recibir un WhatsApp.
 
 #### **Prueba para Email**
-1.  Abre tu propia cuenta de correo (Gmail, Outlook, la que sea).
-2.  Redacta un nuevo email.
-    -   **Para:** La dirección de correo del cliente (la que configuraste en el nodo IMAP).
-    -   **Asunto:** Escribe el texto exacto que pusiste en el filtro (ej: `Has vendido`).
-3.  Envía el correo.
-4.  En unos instantes (n8n revisa periódicamente), el cliente debe recibir el WhatsApp con el asunto del correo que enviaste.
+1.  Abre tu propia cuenta de correo.
+2.  Redacta un nuevo email. **Para:** La dirección de correo del cliente. **Asunto:** `Has vendido`.
+3.  Envía el correo. El cliente debe recibir el WhatsApp.
 
 #### **Prueba para Google Sheets**
 1.  Abre la hoja de cálculo de Google Sheets del cliente.
-2.  Ve a la primera fila vacía y **añade datos de prueba** en las columnas correspondientes (ej: Columna A: `Producto de Prueba`, Columna B: `100`).
-3.  Dependiendo de la configuración del trigger, n8n lo detectará en el siguiente ciclo (puede tardar unos minutos) y el cliente recibirá el WhatsApp con los datos de esa fila.
+2.  Añade una fila con datos de prueba. El cliente debe recibir el WhatsApp.
 
 ---
 
