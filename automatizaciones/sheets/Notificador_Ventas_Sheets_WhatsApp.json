@@ -1,0 +1,8 @@
+{
+  "name": "Plantilla - Notificador Ventas por Google Sheets",
+  "nodes": [
+    { "parameters": { "event": "rowAdded", "documentId": { "__rl": true, "value": "[ID_DE_LA_HOJA_DE_GOOGLE_SHEETS]" }, "sheetName": { "__rl": true, "value": "[NOMBRE_DE_LA_PESTAÑA]" } }, "id": "sheets-trigger-node", "name": "Google Sheets Trigger", "type": "n8n-nodes-base.googleSheetsTrigger", "typeVersion": 1, "position": [ 250, 300 ], "credentials": { "googleSheetsOAuth2Api": { "id": "[ID_CREDENCIAL_GOOGLE]", "name": "Credencial Google del Cliente" } } },
+    { "parameters": { "method": "GET", "url": "https://api.callmebot.com/whatsapp.php", "sendQuery": true, "queryParameters": { "parameters": [ { "name": "phone", "value": "[NUMERO_WHATSAPP_CLIENTE]" }, { "name": "apikey", "value": "[APIKEY_CALLMEBOT_CLIENTE]" }, { "name": "text", "value": "🔔 Nueva venta en Sheets!\nProducto: {{$json.A}}\nTotal: ${{$json.B}}" } ] } }, "id": "whatsapp-node", "name": "Enviar WhatsApp", "type": "n8n-nodes-base.httpRequest", "typeVersion": 4.2, "position": [ 500, 300 ] }
+  ],
+  "connections": { "Google Sheets Trigger": { "main": [ [ { "node": "Enviar WhatsApp", "type": "main", "index": 0 } ] ] } }
+}
